@@ -23,6 +23,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('library/', include('library.urls')),
+    path('api/', include('api.urls')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 if settings.DEBUG:
