@@ -1,6 +1,6 @@
 # Test Django
 
-### Installing 
+### Installing locally
 
 #### Clone 
 `git clone https://github.com/pablovianas/Test_Django`
