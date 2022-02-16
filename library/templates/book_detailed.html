@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Book Detailed View
+{% endblock %}
+
+{% block content %}
+    {% if book_detail %}
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <h2>
+                    Book Detailed View
+                </h2>
+            </div>
+        </div>
+        <div class="card-body p0">
+            <table class="table table-condensed">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th>Title</th>
+                        <th>Summary</th>
+                        <th>ISBN</th>
+                        <th>Author</th> 
+                        <th colspan="{{genres_cont}}">Genre</th>
+                        <th colspan="2">Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr style="text-align: center;">
+                        <td>{{book_detail.title}}</td>
+                        <td>{{book_detail.summary}}</td>
+                        <td>{{book_detail.isbn}}</td>
+                        <td>{{book_detail.author}}</td>
+                        {% for genre in genres %}
+                            <td>{{genre.name}}</td>
+                        {%endfor%}
+                        <td>
+                            <button class="btn btn-light">
+                                <a href="{% url 'book_update' book_detail.id %}">Edit</a>
+                            </button>
+                        </td>   
+
+                        <td>
+                            <button class="btn btn-light">
+                                <a href="{% url 'book_delete' book_detail.id %}">Delete</a>
+                            </button>
+                        </td>
+                    </tr>
+              
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+    {% else %}
+      
+        <h2>There are no books in the library.</h2>
+       
+        
+    {% endif %}
+
+{% endblock %}
