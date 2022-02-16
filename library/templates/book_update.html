@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title" style="text-align: center;">Update a book</h2>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+                {{form.as_p}}
+
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+    </div>
+</div>
+
+{%endblock content%}
+{%block scripts%}
+
+<script>
+    function addGenres() { }
+    let genres = [
+        'Fantasy',
+        'Sci-Fi',
+        'Mystery',
+        'Thriller',
+        'Romance',
+        'Westerns',
+        'Dystopian',
+        'Contemporary',
+    ]
+
+    for (var i = 0; i < genres.length; i++) {
+        values = genres[i]
+        var select = document.getElementById("id_genre");
+        var option = document.createElement("OPTION");
+
+        option.text = values;
+        option.value = values;
+        select.options.add(option);
+    }
+
+</script>
+
+
+{%endblock%}

@@ -39,9 +39,13 @@ class BookCreateView(CreateView):
 
 class BookUpdateView(UpdateView):
     model = Books
-    template_name = 'books_form.html'
-    fields = ['title', 'summary', 'isbn']
+    form_class = AddBookForm
+    template_name = 'book_update.html'
     success_url = reverse_lazy('books')
+
+    
+
+    
 
 class BookDeleteView(DeleteView):
     model = Books
